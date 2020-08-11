@@ -56,4 +56,4 @@ function A_Star(start, goal, h)
 
 # Explanation
 ![Astar example](demo/AstarExampleEn.gif)
-![Astar progress animation](demo/Astart_progress_animation.gif)
+![Astar progress animation](demo/Astar_progress_animation.gif)
