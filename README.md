@@ -6,12 +6,11 @@ The time complexity of A* depends on the heuristic. In the worst case of an unbo
 This assumes that a goal state exists at all, and is reachable from the start state; if it is not, and the state space is infinite, the algorithm will not terminate.
 
 The heuristic function has a major effect on the practical performance of A* search, since a good heuristic allows A* to prune away many of the bd nodes that an uninformed search would expand. Its quality can be expressed in terms of the effective branching factor b*, which can be determined empirically for a problem instance by measuring the number of nodes expanded, N, and the depth of the solution,
-then solving {\displaystyle N+1=1+b^{*}+(b^{*})^{2}+\dots +(b^{*})^{d}.}{\displaystyle N+1=1+b^{*}+(b^{*})^{2}+\dots +(b^{*})^{d}.}
+then solving ```N + 1 = 1 + b* + (b*)^2 + ... + (b*)^d```
 Good heuristics are those with low effective branching factor (the optimal being b* = 1).
 
 The time complexity is polynomial when the search space is a tree, there is a single goal state, and the heuristic function h meets the following condition:
-
-{\displaystyle |h(x)-h^{*}(x)|=O(\log h^{*}(x))}|h(x) - h^*(x)| = O(\log h^*(x))
+```|h(x) - h*(x)| = O(log h*(x))```
 where h* is the optimal heuristic, the exact cost to get from x to the goal. In other words, the error of h will not grow faster than the logarithm of the "perfect heuristic" h* that returns the true distance from x to the goal.
 
 The space complexity of A* is roughly the same as that of all other graph search algorithms, as it keeps all generated nodes in memory. In practice, this turns out to be the biggest drawback of A* search, leading to the development of memory-bounded heuristic searches, such as Iterative deepening A*, memory bounded A*, and SMA*.
