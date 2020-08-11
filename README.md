@@ -55,5 +55,8 @@ function A_Star(start, goal, h)
 ```
 
 # Explanation
+### Astart Example
 ![Astar example](demo/AstarExampleEn.gif)
+
+### Astar progress animation
 ![Astar progress animation](demo/Astar_progress_animation.gif)
