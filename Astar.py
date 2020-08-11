@@ -16,7 +16,6 @@ PURPPLE = (128, 0, 128)
 ORANGE = (255, 165, 0)
 GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
-
 class Spot:
 	def __init__(self, row, col, width, total_rows):
 		self.row = row
@@ -71,7 +70,18 @@ class Spot:
 		pygame.draw.rect(win, self.color, (self.x, self.y, self.width, self.width))
 
 	def update_neighbors(self, grid):
-		pass
+		self.neighbors = []
+		if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # to go DOWN
+			self.neighbors.append(grid[self.row + 1][self.col])
+
+		if self.row > 0  and not grid[self.row - 1][self.col].is_barrier(): # to go UP
+			self.neighbors.append(grid[self.row - 1][self.col])
+
+		if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier(): # to go RIGHT
+			self.neighbors.append(grid[self.row][self.col + 1])
+
+		if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # to go LEFT
+			self.neighbors.append(grid[self.row][self.col - 1])
 
 	def __lt__(self, other):
 		return False
@@ -82,6 +92,12 @@ def h(p1, p2):
 	x2, y2 = p2
 
 	return abs(x1 - x2) + abs(y1 - y2)
+
+
+def algorithm(draw, grid, start, end):
+	count = 0
+	open_set = PriorityQueue()
+	open_set.put((0, count))
 
 
 def make_grid(rows, width):
@@ -166,6 +182,14 @@ def main(win, width):
 					start = None
 				elif spot == end:
 					end = None
+			
+			if event.type == pygame.KEYDOWN:
+				if event.key == pygame.K_SPACE and not started:
+					for row in grid:
+						for spot in row:
+							spot.update_neighbors()
+						
+					algorithm(lambda: draw(win, grid, ROWS, width), grid, start, end)
 
 	pygame.quit()
 
