@@ -228,12 +228,17 @@ def main(win, width):
 					end = None
 			
 			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_SPACE and not started:
+				if event.key == pygame.K_SPACE and start and end:
 					for row in grid:
 						for spot in row:
 							spot.update_neighbors(grid)
 						
 					algorithm(lambda: draw(win, grid, ROWS, width), grid, start, end)
+			
+				if event.key_== pygame.K_c:
+					start = None
+					end = None
+					grid = make_grid(ROWS, width)
 
 	pygame.quit()
 
