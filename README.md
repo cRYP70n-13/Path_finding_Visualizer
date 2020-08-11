@@ -17,7 +17,7 @@ The space complexity of A* is roughly the same as that of all other graph search
 
 
 # Pseudo Code
-```py
+```pc
 function reconstruct_path(cameFrom, current)
     total_path := {current}
     while current in cameFrom.Keys:
@@ -78,3 +78,6 @@ A* is often used for the common pathfinding problem in applications such as vide
 
 ## Astar progress animation
 ![Astar progress animation](demo/Astar_progress_animation.gif)
+
+# Requirments
+Pygame
