@@ -1,8 +1,8 @@
-# Path_finding_Visualizer
+# Path finding Visualizer
 A* (pronounced "A-star") is a graph traversal and path search algorithm, which is often used in many fields of computer science due to its completeness, optimality, and optimal efficiency. One major practical drawback is its O(b^d) space complexity, as it stores all generated nodes in memory. Thus, in practical travel-routing systems, it is generally outperformed by algorithms which can pre-process the graph to attain better performance, as well as memory-bounded approaches; however, A* is still the best solution in many cases.
 
-# Pseudo_Code
-```
+# Pseudo Code
+```py
 function reconstruct_path(cameFrom, current)
     total_path := {current}
     while current in cameFrom.Keys:
@@ -55,6 +55,6 @@ function A_Star(start, goal, h)
 ```
 
 # Explanation
-### Astart Example
+## Astart Example
 ![Astar example](demo/AstarExampleEn.gif)
 ![Astar progress animation](demo/Astar_progress_animation.gif)
