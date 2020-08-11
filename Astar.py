@@ -97,7 +97,13 @@ def h(p1, p2):
 def algorithm(draw, grid, start, end):
 	count = 0
 	open_set = PriorityQueue()
-	open_set.put((0, count))
+	open_set.put((0, count, start))
+	came_from = {}
+	g_score = { spot: float("inf") for row in grid for spot in row }
+	g_score[start] = 0
+	f_score = { spot: float("inf") for row in grid for spot in row }
+	f_score[start] = h(start.get_pos(), end_pos())
+	
 
 
 def make_grid(rows, width):
