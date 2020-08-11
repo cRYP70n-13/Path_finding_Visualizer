@@ -1,3 +1,8 @@
+# title: Path finding visualizer
+# creator: cRYP70N
+# date: 11/08/2020
+# description: this is an A* path finding visualizer in python using pygame
+
 import pygame
 import math
 from queue import PriorityQueue
