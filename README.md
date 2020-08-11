@@ -53,3 +53,7 @@ function A_Star(start, goal, h)
     // Open set is empty but goal was never reached
     return failure
 ```
+
+# Explanation
+![Astar example](demo/AstarExampleEn.gif)
+![Astar progress animation](demo/Astart_progress_animation.gif)
